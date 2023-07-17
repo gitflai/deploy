@@ -6,7 +6,7 @@ st.set_page_config(page_title="Modelo para Proposta de Salário",
 				   page_icon = "💸",
 				   layout = "wide")
 
-modelo_carregado = load_model('recursos/modelo-previsao-de-salarios')
+modelo_carregado = load_model('recursos/regressao-linear-teste')
 
 st.title('💸 Modelo para Proposta de Salário para Profissionais de Dados')
 
@@ -119,10 +119,6 @@ dici = {'profissao': [profissao],
 
 dado = pd.DataFrame(dici) 
 
-st.write(dado)
-
-a = predict_model(modelo_carregado, data = dados)
-st.write(a)
 _, col, _ = st.columns(3)
 
 with col:
@@ -130,8 +126,7 @@ with col:
 		type = 'primary', 
 		use_container_width = True)
 
-	if botao:  
-		pred = float(predict_model(modelo_carregado, data = dado)['prediction_label'][0])
+	if botao: 
+		pred = predict_model(modelo_carregado, data = dado)['prediction_label'][0]
 		saida = f'## **R$ {pred:.2f}** \n é o salário estimado pelo modelo'
-		st.info(saida) 
-		
+		st.info(saida)

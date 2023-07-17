@@ -6,7 +6,7 @@ st.set_page_config(page_title="Modelo para Proposta de Salário",
 				   page_icon = "💸",
 				   layout = "wide")
 
-modelo_carregado = load_model('recursos/regressao-linear-teste')
+modelo_carregado = load_model('recursos/modelo-previsao-de-salarios-gbr')
 
 st.title('💸 Modelo para Proposta de Salário para Profissionais de Dados')
 

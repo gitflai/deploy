@@ -128,11 +128,8 @@ with col:
 		type = 'primary', 
 		use_container_width = True)
 
-	if botao: 
-		try:
-			pred = predict_model(modelo_carregado, data = dado)['prediction_label'][0]
-			saida = f'## **R$ {pred:.2f}** \n é o salário estimado pelo modelo'
-			st.info(saida)
-		except:
-			st.error('Deu pau')
+	if botao:  
+		pred = float(predict_model(modelo_carregado, data = dado)['prediction_label'][0])
+		saida = f'## **R$ {pred:.2f}** \n é o salário estimado pelo modelo'
+		st.info(saida) 
 		

@@ -121,6 +121,8 @@ dado = pd.DataFrame(dici)
 
 st.write(dado)
 
+a = predict_model(modelo_carregado, data = dados)
+st.write(a)
 _, col, _ = st.columns(3)
 
 with col:

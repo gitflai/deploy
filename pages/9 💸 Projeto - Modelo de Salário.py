@@ -119,6 +119,8 @@ dici = {'profissao': [profissao],
 
 dado = pd.DataFrame(dici) 
 
+st.write(dado)
+
 _, col, _ = st.columns(3)
 
 with col:
@@ -127,6 +129,10 @@ with col:
 		use_container_width = True)
 
 	if botao: 
-		pred = predict_model(modelo_carregado, data = dado)['prediction_label'][0]
-		saida = f'## **R$ {pred:.2f}** \n é o salário estimado pelo modelo'
-		st.info(saida)
+		try:
+			pred = predict_model(modelo_carregado, data = dado)['prediction_label'][0]
+			saida = f'## **R$ {pred:.2f}** \n é o salário estimado pelo modelo'
+			st.info(saida)
+		except:
+			st.error('Deu pau')
+		
